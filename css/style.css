@@ -81,13 +81,20 @@ img{
     color: #B0B1B0;
 }
 
+.hour-sty{
+    top: 10px;
+    right: 5px;
+    font-size: 10px;
+    color: #B0B1B0; 
+}
+
 /* CONTACTS MODELLING */
 
 .uper-contacts{
-    height: 100px;
+    height: 105px;
 }
 .bottom-contacts{
-    height: calc(100% - 100px);
+    height: calc(100% - 105px);
     
 }
 

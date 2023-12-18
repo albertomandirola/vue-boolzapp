@@ -9,6 +9,7 @@ createApp({
             currentChat:0,
             contacts: [
                 {
+                    
                     name: 'Michele',
                     avatar: './img/avatar_1.jpg',
                     visible: true,
@@ -196,7 +197,19 @@ createApp({
                 this.contacts[this.currentChat].messages.push(obj)
             }, 1000);
 
+        },
+        searchContact(){
+            this.contacts.forEach(contact => {
+                if(contact.name.toLowerCase().includes(this.search_contact.toLowerCase())){
+                    contact.visible = true; 
+                }
+                else{
+                    contact.visible = false;
+                    
+                }
+            });
         }
+       
         
         
     }

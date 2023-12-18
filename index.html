@@ -69,19 +69,21 @@
                         <!-- SEARCH BAR -->
                         <div class="input-group flex-nowrap b-b">
                             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
-                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="" @keyup="" aria-label="cerca" aria-describedby="addon-wrapping">
+                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search_contact" @keyup="searchContact" aria-label="cerca" aria-describedby="addon-wrapping">
                         </div>
                     </div>
                 <div class="bottom-contacts overflow-auto">
                     <!-- LISTA CONTATTI -->
                     <ul class="list-unstyled">
-                        <li @click="changeChat(index)" v-for="(contact,index) in contacts" :key="index" class="d-flex p-2 d-flex align-items-center b-b m-0 " >
+                        <li @click="changeChat(index)" v-show="contact.visible" v-for="(contact,index) in contacts" :key="index" class=" position-relative p-1 d-flex align-items-center b-b m-0 " >
                             <img :src="contact.avatar" alt="">
                             <div class="p-2">
                                 {{ contact.name }}
                                 <br>
-                                <span></span>
+                                <span class="">{{ contact.messages[contact.messages.length - 1].message }}</span>
+                                
                             </div>
+                            <span class="position-absolute hour-sty">{{ contact.messages[contact.messages.length - 1].date }}</span>
                         </li>
                     </ul>
                 </div> 
