@@ -20,7 +20,12 @@ body{
     background-color: white;
 }
 
+/* HEADER */
 header{
+    height: 70px;
+}
+
+.h-70{
     height: 70px;
 }
 
@@ -63,6 +68,7 @@ img{
     border-radius: 5%;
     padding: 10px 20px;
     max-width: 50%;
+    min-width: 20%;
     word-break: break-all;
     position: relative;
 }

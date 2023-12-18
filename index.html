@@ -12,89 +12,102 @@
 <body>
     <div id="app">
       <div class="container-large">
+        <!-- INIZIO HEADER -->
         <header>
           <div class="row m-0">
             <div class="col-4 p-0">
-              <div id="user" class="d-flex align-items-center justify-content-between b-b ">
-                  <div class="user-info p-2">
-                      <img src="./img/avatar_io.jpg" alt="">
-                      <span  class="p-2">Sofia</span>
-                  </div>
-                  <div class="user-icon">
-                      <i class="fa-lg  mx-2 fa-solid fa-circle-notch"></i>
-                      <i class="fa-lg  mx-2 fa-solid fa-message"></i>
-                      <i class="fa-lg  mx-2 fa-solid fa-ellipsis-vertical"></i>
-                  </div>
-              </div>
+                <!-- SCHEDA CONTATTO UTENTE -->
+                <div id="user" class="d-flex align-items-center justify-content-between b-b h-70">
+                    <div class="user-info p-2">
+                        <img src="./img/avatar_io.jpg" alt="">
+                        <span  class="p-2">Sofia</span>
+                    </div>
+                    <div class="user-icon">
+                        <i class="fa-lg  mx-2 fa-solid fa-circle-notch"></i>
+                        <i class="fa-lg  mx-2 fa-solid fa-message"></i>
+                        <i class="fa-lg  mx-2 fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
             </div>
             <div class="col-8 p-0">
-              <div id="contactActive" class="d-flex justify-content-between align-items-center b-b">
-                  <div class="p-2">
-                      <img src="./img/avatar_1.jpg" alt="">
-                      <span class="p-2">sofia</span>
-                  </div>
-                  <div class="contact-icon p-2 d-flex align-items-center">
-                      <i class="fa-lg mx-2 fa-solid fa-magnifying-glass "></i>
-                      <i class="fa-lg mx-2 fa-solid fa-paperclip"></i>
-                      <i class="fa-lg mx-2 fa-solid fa-ellipsis-vertical"></i>
-                  </div>
-              </div>
+                <!-- SCHEDA CONTATTO ATTIVA -->
+                <div id="contactActive" class="d-flex justify-content-between align-items-center b-b h-70">
+                    <div class="p-2">
+                        <img :src="contacts[currentChat].avatar" alt="">
+                        <span class="p-2">{{contacts[currentChat].name}}</span>
+                    </div>
+                    <div class="contact-icon p-2 d-flex align-items-center">
+                        <i class="fa-lg mx-2 fa-solid fa-magnifying-glass "></i>
+                        <i class="fa-lg mx-2 fa-solid fa-paperclip"></i>
+                        <i class="fa-lg mx-2 fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
             </div>
           </div>
         </header>
+        <!-- INIZIO MAIN -->
         <main>
           <div class="row m-0 h-100">
             <div class="col-4 p-0 h-100">
-              <div id="contacts-zone" class="h-100">
-                <div class="uper-contacts">
-                  <div class="d-flex align-items-center justify-content-between b-lb ">
-                      <div class="d-flex p-2">
-                          <div>
-                              <i class="fa-regular fa-bell-slash"></i>
-                          </div>
-                          <div>
-                              <span>Ricevi notifiche di nuovi messaggi</span>
-                              <br>
-                              <a href="">attiva notifiche desktop</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="input-group flex-nowrap b-b">
-                      <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
-                      <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup="searchContact" aria-label="cerca" aria-describedby="addon-wrapping">
-                  </div>
-                </div>
+                <!-- INIZIO ZONA CONTATTI -->
+                <div id="contacts-zone" class="h-100">
+                    <!-- ZONA NOTIFICHE E SERCH BAR -->
+                    <div class="uper-contacts">
+                        <!-- NOTIFICHE -->
+                        <div class="d-flex align-items-center justify-content-between b-lb ">
+                            <div class="d-flex p-2">
+                                <div>
+                                    <i class="fa-regular fa-bell-slash"></i>
+                                </div>
+                                <div>
+                                    <span>Ricevi notifiche di nuovi messaggi</span>
+                                    <br>
+                                    <a href="">attiva notifiche desktop</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SEARCH BAR -->
+                        <div class="input-group flex-nowrap b-b">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="" @keyup="" aria-label="cerca" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
                 <div class="bottom-contacts overflow-auto">
-                  <ul class="list-unstyled">
-                          <li v-for="(contact,index) in contacts" :key="index" class="d-flex p-2 d-flex align-items-center b-b m-0 ">
-                              <img :src="contact.avatar" alt="">
-                              <div class="p-2">
-                                  {{ contact.name }}
-                                  <br>
-                                  <span>ultimo messaggio ricevuto</span>
-                              </div>
-                          </li>
-                  </ul>
+                    <!-- LISTA CONTATTI -->
+                    <ul class="list-unstyled">
+                        <li @click="changeChat(index)" v-for="(contact,index) in contacts" :key="index" class="d-flex p-2 d-flex align-items-center b-b m-0 " >
+                            <img :src="contact.avatar" alt="">
+                            <div class="p-2">
+                                {{ contact.name }}
+                                <br>
+                                <span></span>
+                            </div>
+                        </li>
+                    </ul>
                 </div> 
               </div>
+              <!-- TERMINE ZONA CONTATTI -->
             </div>
             <div class="col-8 p-0 h-100 position-relative">
-              <div id="chat">
-                <ul class="list-unstyled">
-                    <li class="clearfix" v-for="(message,index) in contacts[currentChat].messages" >
-                        <div :class="(message.status === 'sent') ? 'float-end sent': 'float-start received' ">
-                            {{message.message}}
-                            <span class="hour">{{message.date}}</span>
-                        </div>
-                    </li>
-                </ul>
-    
-              </div>
-              <div id="text-zone" class="d-flex align-items-center b-b  bottom-0 w-100">
-                  <i class="fa-lg  mx-2 fa-regular fa-face-smile"></i>
-                  <input @keyup.enter="addMessage" v-model="new_message" type="text" class="form-control form-control-sm m-1" placeholder="inserisci cose da fare">
-                  <i class="fa-lg  mx-2 fa-solid fa-microphone"></i>
-              </div>
+                <!-- INZIO CHAT -->
+                <div id="chat">
+                    <!-- LISTA VISUALIZZAZIONE MESSAGGI -->
+                    <ul class="list-unstyled">
+                        <li class="clearfix" v-for="(message,index) in contacts[currentChat].messages" >
+                            <div :class="(message.status === 'sent') ? 'float-end sent': 'float-start received' ">
+                                {{message.message}}
+                                <span class="hour">{{message.date}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- INPUT NUOVO MESSAGE -->
+                <div id="text-zone" class="d-flex align-items-center b-b  bottom-0 w-100">
+                    <i class="fa-lg  mx-2 fa-regular fa-face-smile"></i>
+                    <input @keyup.enter="" v-model="" type="text" class="form-control form-control-sm m-1" placeholder="inserisci cose da fare">
+                    <i class="fa-lg  mx-2 fa-solid fa-microphone"></i>
+                </div>
+                <!-- TERMINE CHAT -->
             </div>
           </div>
         </main>

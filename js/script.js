@@ -3,6 +3,8 @@ const { createApp } = Vue
 createApp({
     data(){
         return{
+            lastMessage:0,
+            search_contact:"",
             new_message:"",
             currentChat:0,
             contacts: [
@@ -176,16 +178,8 @@ createApp({
             this.currentChat = index;
         },
 
-        addMessage(){
-            let obj ={
-                date: '10/01/2020 15:50:00',
-                text : this.new_message,
-                status: 'sent',
-            }
-            this.messages.push(obj),
-            this.new_message = ''
-
-        }
+        
+        
         
     }
 }).mount('#app')
