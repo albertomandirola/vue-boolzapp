@@ -113,5 +113,8 @@ img{
     background-color: #D5F9BB;
 }
 
-/*  */
+/* UTILITY CLASS */
+.display-flex{
+    display: flex;
+}
 /*  */

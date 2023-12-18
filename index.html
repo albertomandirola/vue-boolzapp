@@ -75,7 +75,7 @@
                 <div class="bottom-contacts overflow-auto">
                     <!-- LISTA CONTATTI -->
                     <ul class="list-unstyled">
-                        <li @click="changeChat(index)" v-show="contact.visible" v-for="(contact,index) in contacts" :key="index" class=" position-relative p-1 d-flex align-items-center b-b m-0 " >
+                        <li @click="changeChat(index)" v-show="contact.visible" v-for="(contact,index) in contacts" :key="index" class=" position-relative p-1 display-flex align-items-center b-b m-0 " >
                             <img :src="contact.avatar" alt="">
                             <div class="p-2">
                                 {{ contact.name }}
