@@ -178,7 +178,25 @@ createApp({
             this.currentChat = index;
         },
 
-        
+        addMessage(index){
+            let obj ={
+                date: '10/01/2020 15:50:00',
+                message : this.new_message,
+                status: 'sent',
+            }
+            this.contacts[this.currentChat].messages.push(obj),
+            this.new_message = ''
+            
+            setTimeout(() => {
+                obj ={
+                    date: '10/01/2020 15:50:00',
+                    message : 'ok',
+                    status: 'recived',
+                }
+                this.contacts[this.currentChat].messages.push(obj)
+            }, 1000);
+
+        }
         
         
     }

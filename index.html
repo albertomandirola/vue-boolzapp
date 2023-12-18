@@ -104,7 +104,7 @@
                 <!-- INPUT NUOVO MESSAGE -->
                 <div id="text-zone" class="d-flex align-items-center b-b  bottom-0 w-100">
                     <i class="fa-lg  mx-2 fa-regular fa-face-smile"></i>
-                    <input @keyup.enter="" v-model="" type="text" class="form-control form-control-sm m-1" placeholder="inserisci cose da fare">
+                    <input @keyup.enter="addMessage()" v-model="new_message" type="text" class="form-control form-control-sm m-1" placeholder="inserisci cose da fare">
                     <i class="fa-lg  mx-2 fa-solid fa-microphone"></i>
                 </div>
                 <!-- TERMINE CHAT -->
