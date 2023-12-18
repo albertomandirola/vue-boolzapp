@@ -3,3 +3,102 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* GENERAL CONTAINER */
+
+body{
+    background-image: linear-gradient(#009788 15%, #DADBD5 15%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-large{
+    width: 991px;
+    height: 650px;
+    background-color: white;
+}
+
+header{
+    height: 70px;
+}
+
+main{
+    height: calc(100% - 70px );
+}
+
+/* ICON AND IMG MODELING */
+
+img{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.fa-bell-slash{
+    font-size: 25px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* CHAT MODELLING */
+ 
+#chat{
+    height: calc(100% - 40px);
+    overflow-y: scroll;
+    position: relative;
+    background-image: url(../img/mine.jpg);
+    background-repeat: repeat;
+}
+
+#text-zone{
+    position: absolute;
+    bottom: 0;
+    background-color: lightgrey;
+}
+
+.received, .sent{
+    margin: 10px 60px 10px 60px;
+    border-radius: 5%;
+    padding: 10px 20px;
+    max-width: 50%;
+    word-break: break-all;
+    position: relative;
+}
+
+.hour{
+    position: absolute;
+    bottom: 1px;
+    right: 5px;
+    font-size: 10px;
+    color: #B0B1B0;
+}
+
+/* CONTACTS MODELLING */
+
+.uper-contacts{
+    height: 100px;
+}
+.bottom-contacts{
+    height: calc(100% - 100px);
+    
+}
+
+
+/* MODELLING */
+.b-b{
+    border: 1px solid #B0B1B0;
+}
+.b-lb{
+    background-color: lightblue;
+}
+.received{
+    background-color: white;
+}
+.sent{
+    background-color: #D5F9BB;
+}
+
+/*  */
+/*  */
